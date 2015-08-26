@@ -1,0 +1,63 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "Main",
+   $Basics = Elm.Basics.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp$Simple = Elm.StartApp.Simple.make(_elm),
+   $Svg = Elm.Svg.make(_elm),
+   $Svg$Attributes = Elm.Svg.Attributes.make(_elm);
+   var update = F2(function (action,
+   model) {
+      return model;
+   });
+   var Decrement = {ctor: "Decrement"};
+   var Increment = {ctor: "Increment"};
+   var view = F2(function (address,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([]),
+      _L.fromArray([A2($Svg.svg,
+      _L.fromArray([$Svg$Attributes.version("1.1")
+                   ,$Svg$Attributes.x("0")
+                   ,$Svg$Attributes.y("0")
+                   ,$Svg$Attributes.viewBox("0 0 1000 1000")]),
+      _L.fromArray([A2($Svg.rect,
+      _L.fromArray([$Svg$Attributes.fill("#7FD13B")
+                   ,$Svg$Attributes.x(model.x)
+                   ,$Svg$Attributes.y(model.y)
+                   ,$Svg$Attributes.width("100")
+                   ,$Svg$Attributes.height("100")]),
+      _L.fromArray([]))]))]));
+   });
+   var init = {_: {}
+              ,x: "50"
+              ,y: "50"};
+   var Model = F2(function (a,b) {
+      return {_: {},x: a,y: b};
+   });
+   var main = $StartApp$Simple.start({_: {}
+                                     ,model: init
+                                     ,update: update
+                                     ,view: view});
+   _elm.Main.values = {_op: _op
+                      ,main: main
+                      ,Model: Model
+                      ,init: init
+                      ,view: view
+                      ,Increment: Increment
+                      ,Decrement: Decrement
+                      ,update: update};
+   return _elm.Main.values;
+};
