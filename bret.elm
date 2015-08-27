@@ -2,6 +2,9 @@ import Html exposing (div, button, text, Html)
 import Html.Events exposing (onClick)
 import Html.Attributes exposing (style)
 import StartApp.Simple exposing (start)
+import Color exposing (rgb, Color)
+
+import String
 
 import Svg exposing (svg, rect)
 import Svg.Attributes exposing (
@@ -34,6 +37,13 @@ init =
     y = "50"
   }
 
+toHex : Color -> String
+toHex c =
+  let
+    ext = c.toRgb
+  in
+    String.fromList (List.map show, [ ext.r, ext.g, ext.b ])
+
 view : Signal.Address Action -> Model -> Html
 view address model =
   --div [ style [ ("width","500px"), ("height","500px") ] ]
@@ -47,11 +57,13 @@ view address model =
         ]
         [
         rect
-          [ fill "#7FD13B", x model.x, y model.y, width "100", height "100"
+          [ fill (rgb 0, 0, 255), x model.x, y model.y, width "100", height "100"
           ]
           []
         ]
     ]
+
+
 
 type Action = Increment | Decrement
 
